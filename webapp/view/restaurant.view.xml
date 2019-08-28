@@ -1,0 +1,42 @@
+<mvc:View controllerName="fapp.foodApp.controller.restaurant" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Page title="{i18n>title}" showHeader="false">
+		<content>
+			<HBox class="logoHeader">
+				<HBox class="logoLeft sapUiSmallMargin">
+					<Text text="{i18n>FOOD_RUNNER}" class="logoTitle"></Text>
+				</HBox>
+				<HBox class="logOut">
+					<Text text="Hi {oCustLoginModel>/user}" class="textSize"></Text>
+					<Button text="{i18n>LOGOUT}" class="logOutButton"></Button>
+				</HBox>
+			</HBox>
+			<l:VerticalLayout width="100%" class="gridWrapper sapUiSmallMarginTop">
+				<l:Grid containerQuery="true" hSpacing="2" content="{oRestModel>/restList}" id="grid" defaultSpan="L4 M2 S3">
+					<l:content>
+						<VBox class="restaurant">
+							<VBox class="restaurantImage">
+								<Image src="./images/image5.jpg" class="sapUiSmallMargin" width="15rem"/>
+							</VBox>
+							<HBox>
+								<VBox class="sapUiSmallMargin">
+									<Text text="{oRestModel>restname}" class="restaurantName"></Text>
+									<!--<Text text="Jayanagr 9Th Block"></Text>-->
+									<!--<RatingIndicator maxValue="5" enabled="true" class="sapUiSmallMarginBottom" value="{oModelRestaurant>rating}" iconSize="12px"/>-->
+								</VBox>
+								<VBox class="right sapUiSmallMargin">
+									<core:Icon src="sap-icon://supplier" color="#031E48"/>
+									<Text text="{oRestModel>restadd}"/>
+									<Text text="{i18n>CONTACT}-{oRestModel>restphnum}"/>
+								</VBox>
+								<VBox class="imageMenu">
+									<Button text="{i18n>MENU}" class="viewMenuButton" press="viewMenu"></Button>
+								</VBox>
+							</HBox>
+						</VBox>
+					</l:content>
+				</l:Grid>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

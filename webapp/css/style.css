@@ -1,0 +1,217 @@
+/*Home page css*/
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.loginButton {
+    float: right;
+}
+
+.sapMBtnTransparent {
+    color: white;
+    text-Shadow: none;
+}
+
+.sapMBtnInner {
+    min-width: 6.5rem;
+    font-size: 1.2rem;
+}
+
+.header {
+    height: 4rem;
+    background-color: white;
+}
+
+.appTitle {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+
+.appTitleText {
+    font-size: 5rem;
+    color: white;
+}
+
+.btn {
+    border: 1px solid #e67e22;
+    padding: 10px 30px;
+    color: #e67e22;
+    text-decoration: none;
+    border-radius: 12px;
+    margin-right: 15px;
+}
+
+.btn-half:hover {
+    background-color: #e67e22;
+    color: white;
+    transition: all 0.5s ease-in;
+}
+
+
+/*login fragment css*/
+
+.sapMITBScrollContainer {
+    background-color: white;
+}
+
+.sapMITH {
+    box-shadow: inset 0 -0.25rem 0 -0.125rem white;
+    background-color: white;
+}
+
+.onLoginBtn .sapMBtnInner {
+    color: #e67e22;
+}
+
+
+/*Menu Page*/
+
+.exampleDiv {
+    background-color: white;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.exampleDiv .left {
+    flex-grow: 3;
+}
+
+.exampleDiv .imageMenu {
+    flex-grow: 0;
+    background-color: brown;
+}
+
+.exampleDiv .right {
+    flex-grow: 3;
+}
+
+.toolHeader.sapTntToolHeader.sapMTB {
+    height: 4rem;
+}
+
+.toolHeader .sapTntToolHeader.sapMTBv {
+    background-color: black;
+    border: 1px solid black;
+}
+
+.logoHeader {
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logoLeft {
+    flex-grow: 6;
+}
+
+.logoTitle {
+    font-size: 2rem;
+    color: white;
+}
+
+.logOut {
+    float: right;
+    flex-grow: 0;
+}
+
+.logOutButton .sapMBtnDefault {
+    color: #e67e22;
+    background: transparent;
+    border: 1px solid #e67e22;
+}
+
+.logOutButton .sapMBtnDefault:hover {
+    color: white;
+    background-color: black;
+}
+
+.logOutButton .sapMBtn:hover>.sapMBtnHoverable {
+    color: white;
+    background-color: black;
+}
+
+.usernameText {
+    font-size: 2rem;
+    color: white;
+}
+
+.master {
+    background-color: black;
+}
+
+.master .sapMSLITitleOnly {
+    color: white;
+}
+
+.sapMLIBHoverable:hover {
+	background:#1061A7;
+}
+
+.header {
+    background-color: violet;
+    width: "100%";
+}
+
+.registerButton {
+	align-content:center;	
+}
+
+.adminIcon {
+    color: white;
+}
+
+.adminIcon:hover {
+    color: #e67e22;
+}
+
+.driverIcon {
+    width: 4.5rem;
+}
+
+.driverIcon:hover {
+    width: 5rem;
+    cursor: pointer;
+}
+
+.textSize {
+    font-size: 2.5rem;
+    color: white;
+}
+
+
+/*Restaurant View Styling*/
+
+.restaurant {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+}
+
+.restaurantName {
+    font-size: 1.5rem;
+}
+
+.viewMenuButton .sapMBtnDefault {
+    background-color: transparent;
+    color: orange;
+    border: none;
+}
+
+.viewMenuButton .sapMBtnHoverable:hover {
+    background-color: #e67e22 !important;
+    color: white;
+}
+
+.sapMFlexBoxJustifyStart {
+	justify-content: center;
+}
+
+.totalPrice .sapMFlexItemAlignAuto{
+	font-size:1.2rem;
+	align-self: center;
+}

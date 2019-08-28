@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="foodItemsFragment">
+	<Dialog title="{i18n>ADD_FOOD_ITEMS}">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>ITEM_NAME}"/>
+				<Input value="{oModel>/item1}"/>
+				<Label text="{i18n>ITEM_PRICE}"/>
+				<Input value="{oModel>/price1}"/>
+				<Label text="{i18n>ITEM_NAME}"/>
+				<Input value="{oModel>/item2}"/>
+				<Label text="{i18n>ITEM_PRICE}"/>
+				<Input value="{oModel>/price2}"/>
+				<Button press="onSubmitAddItems" text="{i18n>ADD}" class="onLoginBtn"></Button>
+				<Button press="onClickCancel" text="{i18n>CANCEL}"></Button>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

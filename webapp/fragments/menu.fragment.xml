@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="{oModel>/restname}">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<Table items="{oMenuModel>/}">
+				<columns>
+					<Column>
+						<Text text="{i18n>ITEM_NAME}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>ITEM_PRICE}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>ITEM_QUANTITY}"/>
+					</Column>
+					<Column>
+						<Text text=""/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{oMenuModel>item}"/>
+							<Text text="Rs.{oMenuModel>price}"/>
+							<Input value="{oMenuModel>quantity}" type="Number"/>
+							<Button text="{i18n>ADD}" press="onClickAddItem" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<HBox>
+				<Button text="{i18n>TOTAL_PRICE}" press="onClickTotalPayment"/>
+				<Text text="Rs.{oModel>/totalprice}" class="totalPrice sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox class="rightPlaceOrder">
+				<Button text="{i18n>VIEW_CART}" press="onClickViewCart" class="onLoginBtn sapUiSmallMarginEnd"></Button>
+				<Button text="{i18n>CANCEL}" press="onClickCancel"></Button>
+			</HBox>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

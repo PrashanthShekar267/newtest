@@ -1,0 +1,29 @@
+<mvc:View controllerName="fapp.foodApp.controller.login" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
+	<App id="idAppControl" backgroundImage="./images/image1.jpg">
+		<pages>
+			<Page title="{i18n>title}" showHeader="false">
+				<content>
+					<VBox class="appTitle sapUiLargeMarginLeft">
+						<Text text="{i18n>FOOD_RUNNER}" class="appTitleText"></Text>
+						<HBox>
+							<Text text="{i18n>SHOW_ME_MORE}" class="btn btn-half"></Text>
+							<Text text="{i18n>TAKE_OUT}" class="btn btn-half"></Text>
+						</HBox>
+					</VBox>
+					<HBox class="loginButton">
+						<Button text="{i18n>LOGIN}" type="Transparent" class="sapUiSmallMargin loginButtonColor" press="loginClick"></Button>
+						<Button text="{i18n>REGISTER}" type="Transparent" class="sapUiSmallMargin loginButtonColor" press="registerClick"></Button>
+						<Image src="./images/food8.png" alt="driver Register Icon" class="driverIcon" press="onClickRestRegister"></Image>
+						<VBox>
+							<core:Icon src="sap-icon://key-user-settings" class="adminIcon sapUiSmallMargin" size="3rem" alt="Admin Login" press="onClickAdmin"></core:Icon>
+							<HBox>
+								<Image src="./images/delivery2.png" alt="delivery Icon" class="driverIcon" press="onClickDeliveryLogin"></Image>
+							</HBox>
+						</VBox>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

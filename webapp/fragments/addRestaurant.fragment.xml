@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="registerFragment">
+	<Dialog title="{i18n>ADD_RESTAURANT}">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>RESTAURANT_NAME}"/>
+				<Input value="{oFormModel>/restname}"/>
+				<Label text="{i18n>RESTAURANT_ADDRESS}"/>
+				<Input value="{oFormModel>/restadd}"/>
+				<Label text="{i18n>RESTAURANT_CONTACT}"/>
+				<Input value="{oFormModel>/restphnum}" maxLength="10"/>
+				<Label text="{i18n>RESTAURANT_LICENSE}"/>
+				<Input value="{oFormModel>/licence}"/>
+				<Label text="{i18n>RESTAURANT_GST_PIN}"/>
+				<Input value="{oFormModel>/gst}"/>
+				<Input value="{oFormModel>/item}"/>
+				<Button text="{i18n>ADD_ITEMS}" press="onClickAddItems"/>
+				<Button press="onSubmitAddRestaurant" text="{i18n>SUBMIT}" class="onLoginBtn"></Button>
+				<Button press="onClickCancel" text="{i18n>CANCEL}"></Button>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

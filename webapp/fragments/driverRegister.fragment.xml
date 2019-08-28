@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="driverRegisterFragment">
+	<Dialog title="{i18n>DRIVER_REGISTER_TITLE}">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>DRIVER_NAME}"/>
+				<Input value="{oModel>/user}" />
+				<Label text="{i18n>PASSWORD}"/>
+				<Input value="{oModel>/password}" type="Password" change="cPassword"/>
+				<Label text="{i18n>DRIVER_EMAIL}"/>
+				<Input value="{oModel>/email}" change="cEmail"/>
+				<Label text="{i18n>DRIVER_CONTACT}"/>
+				<Input value="{oModel>/driverphnum}"  maxLength="10"/>
+				<Label text="{i18n>DRIVER_LICENSE}"/>
+				<Input value="{oModel>/idproof}"/>
+				<Button press="onSubmitDriverRegister" text="{i18n>REGISTER}" class="onLoginBtn"></Button>
+				<Button text="{i18n>CANCEL}" press="onClickCancel"></Button>
+			</l:content>
+	</l:VerticalLayout>
+</Dialog>
+</core:FragmentDefinition>

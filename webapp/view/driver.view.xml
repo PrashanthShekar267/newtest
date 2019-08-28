@@ -1,0 +1,72 @@
+<mvc:View controllerName="fapp.foodApp.controller.driver" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Page title="{i18n>title}" showHeader="false">
+		<content>
+			<HBox class="logoHeader">
+				<HBox class="logoLeft sapUiSmallMargin">
+					<Text text="FoodRunner" class="logoTitle"></Text>
+				</HBox>
+				<HBox class="logOut">
+					<Text text="Hi {inputModel>/oData/user}" class="textSize"/>
+					<Button text="Log Out" class="logOutButton" press="onClickDriverLogout"></Button>
+				</HBox>
+			</HBox>
+			<VBox class="sapUiSmallMargin">
+				<Table items="{oOrderListDriver>/}">
+					<columns>
+						<Column>
+							<Text text="{i18n>RESTAURANT_NAME}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>RESTAURANT_ADDRESS}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>RESTAURANT_CONTACT}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>ORDERED_ITEM}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>TOTAL_PRICE}"/>
+						</Column>
+						<Column>
+							<Text text="Delivery Person"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>DELIVERY_ADDRESS}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>ORDER_TIME}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>DELIVERY_TIME}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>CUSTOMER_NAME_TABLE}"/>
+						</Column>
+						<Column>
+							<Text text="{i18n>DELIVERY_STATUS}"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{oOrderListDriver>restname}"/>
+								<Text text="{oOrderListDriver>restaddress}"/>
+								<Text text="{oOrderListDriver>restphnum}"/>
+								<Text text="{oOrderListDriver>ordereditem}"/>
+								<Text text="{oOrderListDriver>totalprice}"/>
+								<Text text="{oOrderListDriver>deliveryperson}"/>
+								<Text text="{oOrderListDriver>deliveryaddress}"/>
+								<Text text="{oOrderListDriver>orderedtime}"/>
+								<Text text="{oOrderListDriver>deliveredtime}"/>
+								<Text text="{oOrderListDriver>custname}"/>
+								<Button text="{i18n>DELIVERED}" press="onClickDelivered"></Button>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,399 @@
+<mvc:View controllerName="fapp.foodApp.controller.admin" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:a="sap.f" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt">
+	<Page title="{i18n>title}" showHeader="false">
+		<content>
+			<HBox class="logoHeader">
+				<HBox class="logoLeft sapUiSmallMargin">
+					<Text text="{i18n>FOOD_RUNNER}" class="logoTitle"></Text>
+				</HBox>
+				<HBox class="logOut">
+					<Button text="{i18n>LOGOUT}" class="logOutButton" press="onClickLogout"></Button>
+				</HBox>
+			</HBox>
+			<SplitApp id="SplitApp" initialDetail="order" initialMaster="master" orientationChange="onOrientationChange">
+				<detailPages>
+					<Page id="order" title="{i18n>title}" class="sapUiStdPage" showHeader="false">
+						<subHeader>
+							<Toolbar>
+								<SearchField class="sapUiSmallMargin" placeholder="Search Restaurant's Name" width="30%" search="onFilterRestaurant"/>
+							</Toolbar>
+						</subHeader>
+						<content>
+							<Table items="{oOrdersModel>/ordersList}">
+								<columns>
+									<Column>
+										<Text text="{i18n>RESTAURANT_NAME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_ADDRESS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_CONTACT}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>ORDERED_ITEM}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>TOTAL_PRICE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELIVERY_PERSON}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELIVERY_ADDRESS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>ORDER_TIME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELIVERY_TIME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>CUSTOMER_NAME_TABLE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELIVERY_STATUS}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{oOrdersModel>restname}"/>
+											<Text text="{oOrdersModel>restaddress}"/>
+											<Text text="{oOrdersModel>restphnum}"/>
+											<Text text="{oOrdersModel>ordereditem}"/>
+											<Text text="{oOrdersModel>totalprice}"/>
+											<Text text="{oOrdersModel>deliveryperson}"/>
+											<Text text="{oOrdersModel>deliveryaddress}"/>
+											<Text text="{path: 'oOrdersModel>orderedtime', formatter:'.formatter.myFormatter'}"/>
+											<Text text="{path: 'oOrdersModel>deliveredtime', formatter:'.formatter.myFormatter'}"/>
+											<Text text="{oOrdersModel>custname}"/>
+											<Text text="{oOrdersModel>status}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Page>
+					<Page id="orderWaiting" title="{i18n>title}" class="sapUiStdPage" showHeader="false">
+						<subHeader>
+							<Toolbar>
+								<SearchField class="sapUiSmallMargin" placeholder="Search Restaurant's Name" width="30%"/>
+							</Toolbar>
+						</subHeader>
+						<content>
+							<Table items="{oOrdersWaitingModel>/ordersWaitingList}">
+								<columns>
+									<Column>
+										<Text text="{i18n>RESTAURANT_NAME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_ADDRESS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_CONTACT}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>ORDERED_ITEM}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>TOTAL_PRICE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELIVERY_PERSON}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELIVERY_ADDRESS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>ORDER_TIME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>CUSTOMER_NAME_TABLE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELIVERY_STATUS}"/>
+									</Column>
+									<Column>
+										<Text text=""/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{oOrdersWaitingModel>restname}"/>
+											<Text text="{oOrdersWaitingModel>restaddress}"/>
+											<Text text="{oOrdersWaitingModel>restphnum}"/>
+											<Text text="{oOrdersWaitingModel>ordereditem}"/>
+											<Text text="{oOrdersWaitingModel>totalprice}"/>
+											<Select forceSelection="false" selectedKey="{oAvailableDriverDisplay>/availableDriverList/drivername}"
+												items="{oAvailableDriverDisplay>/availableDriverList}" change="onDriverAssign">
+												<core:Item key="{oAvailableDriverDisplay>driverid}" text="{oAvailableDriverDisplay>drivername}"/>
+											</Select>
+											<!--<Text text="{oOrdersWaitingModel>deliveryperson}"/>-->
+											<Text text="{oOrdersWaitingModel>deliveryaddress}"/>
+											<Text text="{path: 'oOrdersModel>orderedtime', formatter:'.formatter.myFormatter'}"/>
+											<Text text="{oOrdersWaitingModel>custname}"/>
+											<Text text="{oOrdersWaitingModel>status}"/>
+											<Button text="{i18n>ASSIGN}" press="onClickAssignDriver"></Button>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Page>
+					<Page id="driver" title="{i18n>title}" class="sapUiStdPage" showHeader="false">
+						<subHeader>
+							<Toolbar>
+								<SearchField class="sapUiSmallMargin" placeholder="Search Driver's Name" width="30%"/>
+								<Button text="Add Driver" press="onClickAddDriver"></Button>
+							</Toolbar>
+						</subHeader>
+						<content>
+							<Table items="{oDAuthenModel>/dAuthenList}" id="driverTable">
+								<columns>
+									<Column>
+										<Text text="{i18n>DRIVER_NAME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DRIVER_CONTACT}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DRIVER_EMAIL}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DRIVER_LICENSE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>STATUS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>AVAILABILTY}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELETE_DRIVER}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{oDAuthenModel>drivername}"/>
+											<Text text="{oDAuthenModel>driverphnum}"/>
+											<Text text="{oDAuthenModel>email}"/>
+											<Text text="{oDAuthenModel>idproof}"/>
+											<Text text="{oDAuthenModel>status}"/>
+											<Text text="{oDAuthenModel>availability}"/>
+											<Button text="{i18n>DELETE}" press="onDeleteDriver"></Button>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Page>
+					<Page id="driverPending" title="{i18n>title}" class="sapUiStdPage" showHeader="false">
+						<subHeader>
+							<Toolbar></Toolbar>
+						</subHeader>
+						<content>
+							<Table items="{oDriverPendingModel>/dPendingList}" id="driverPendingTable">
+								<columns>
+									<Column>
+										<Text text="{i18n>DRIVER_NAME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DRIVER_CONTACT}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DRIVER_EMAIL}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DRIVER_LICENSE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>STATUS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>AVAILABILTY}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>APPROVE_DRIVER}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{oDriverPendingModel>drivername}"/>
+											<Text text="{oDriverPendingModel>driverphnum}"/>
+											<Text text="{oDriverPendingModel>email}"/>
+											<Text text="{oDriverPendingModel>idproof}"/>
+											<Text text="{oDriverPendingModel>status}"/>
+											<Text text="{oDriverPendingModel>availability}"/>
+											<Button text="{i18n>APPROVE}" press="onApprovalDriver"></Button>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Page>
+					<Page id="restaurant" title="{i18n>title}" showHeader="false">
+						<subHeader>
+							<Toolbar>
+								<SearchField class="sapUiSmallMargin" placeholder="Search Restaurant's Name" width="30%"/>
+								<Button text="Add Restaurant" press="onClickAddRestaurant"></Button>
+							</Toolbar>
+						</subHeader>
+						<content>
+							<Table items="{oRestModel>/restList}">
+								<columns>
+									<Column>
+										<Text text="{i18n>RESTAURANT_NAME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_ADDRESS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_MIN_ORDER}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_CONTACT}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_LICENSE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_GST_PIN}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>DELETE_RESTAURANT}Delete Restaurant"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{oRestModel>restname}"/>
+											<Text text="{oRestModel>restadd}"/>
+											<Text text="{oRestModel>restaurantMinOrder}"/>
+											<Text text="{oRestModel>restphnum}"/>
+											<Text text="{oRestModel>licence}"/>
+											<Text text="{oRestModel>gst}"/>
+											<Button text="{i18n>DELETE}" press="onClickDeleteRestaurant"></Button>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Page>
+					<Page id="restaurantPending" title="{i18n>title}" showHeader="false">
+						<subHeader>
+							<Toolbar></Toolbar>
+						</subHeader>
+						<content>
+							<Table items="{oRPendingModel>/rPendingList}">
+								<columns>
+									<Column>
+										<Text text="{i18n>RESTAURANT_NAME}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_ADDRESS}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_MIN_ORDER}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_CONTACT}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_LICENSE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>RESTAURANT_GST_PIN}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>APPROVE}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{oRPendingModel>restName}"/>
+											<Text text="{oRPendingModel>restadd}"/>
+											<Text text="{oRPendingModel>restaurantMinOrder}"/>
+											<Text text="{oRPendingModel>restphnum}"/>
+											<Text text="{oRPendingModel>licenceId}"/>
+											<Text text="{oRPendingModel>gstno}"/>
+											<Button text="Approve" press="onClickApproveRestaurant"></Button>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Page>
+					<Page id="customer" title="{i18n>title}" class="sapUiStdPage" showHeader="false">
+						<subHeader>
+							<Toolbar>
+								<SearchField class="sapUiSmallMargin" placeholder="Search Customer's Name" width="30%"/>
+							</Toolbar>
+						</subHeader>
+						<content>
+							<Table items="{oCustModel>/custList}">
+								<columns>
+									<Column>
+										<Text text="{i18n>CUSTOMER_ID}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>CUSTOMER_NAME_TABLE}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>CUSTOMER_CONTACT}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>CUSTOMER_EMAIL}"/>
+									</Column>
+									<Column>
+										<Text text="{i18n>CUSTOMER_PASSWORD}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{oCustModel>customerid}"/>
+											<Text text="{oCustModel>customername}"/>
+											<Text text="{oCustModel>customerphnum}"/>
+											<Text text="{oCustModel>customeremail}"/>
+											<Text text="{oCustModel>customerpassword}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Page>
+				</detailPages>
+				<masterPages>
+					<Page id="master" title="{i18n>ADMIN}" class="master sapUiStdPage" showHeader="false">
+						<content>
+							<HBox>
+								<a:Avatar src="./images/image3.jpg" class="sapUiSmallMargin" displaySize="L"></a:Avatar>
+								<HBox class="sapUiMediumMarginTop">
+									<Text text="{i18n>ADMIN}" class="usernameText"></Text>
+								</HBox>
+							</HBox>
+							<List itemPress="onListItemPress">
+								<items>
+									<!--<StandardListItem title="Dashboard" type="Active" class="master" custom:to="dashboard"/>-->
+									<StandardListItem title="{i18n>ORDERS}" type="Active" class="master" custom:to="order"/>
+									<StandardListItem title="{i18n>ORDERS_WAITING}" type="Active" class="master" custom:to="orderWaiting"/>
+									<StandardListItem title="{i18n>DRIVER_DETAILS}" type="Active" class="master" custom:to="driver"/>
+									<StandardListItem title="{i18n>DRIVER_APPROVAL_REQUESTS}" type="Active" class="master" custom:to="driverPending"/>
+									<StandardListItem title="{i18n>RESTAURANTS}" type="Active" class="master" custom:to="restaurant"/>
+									<StandardListItem title="{i18n>RESTAURANT_APPROVAL_REQUESTS}" type="Active" class="master" custom:to="restaurantPending"/>
+									<StandardListItem title="{i18n>CUSTOMERS}" type="Active" class="master" custom:to="customer"/>
+								</items>
+							</List>
+						</content>
+					</Page>
+				</masterPages>
+			</SplitApp>
+		</content>
+	</Page>
+</mvc:View>

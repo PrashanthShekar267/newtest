@@ -1,0 +1,203 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "fapp.foodApp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "fapp.foodApp.view.login",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "fapp.foodApp.i18n.i18n"
+				}
+			},
+			"oModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oLoginModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oDAuthenModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/driver/driverdisplayauthenticate"
+			},
+			"oDriverModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "path/driver/driverdetails"
+			},
+			"oDPendingModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/driver/driverdisplaypending"
+			},
+			"oRestModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/resto/displayacceptedrest"
+			},
+			"oRPendingModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/resto/displaypendingrest"
+			},
+			"oAddRestModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/resto/restdetails"
+			},
+			"oOrdersModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/order/orderdetails"
+			},
+			"oOrdersWaitingModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/order/orderswaitingfordrivers"
+			},
+			"oAvailableDriverDisplay": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/driver/availabledriverdisplay"
+			},
+			"oOrderListDriver": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oTableModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "/path/customer/customerdisplay"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "fapp.foodApp.view",
+				"controlAggregation": "pages",
+				"controlId": "idAppControl",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Routelogin",
+					"pattern": "Routelogin",
+					"target": [
+						"Targetlogin"
+					]
+				},
+				{
+					"name": "Routeview1",
+					"pattern": "Routeview1",
+					"target": [
+						"Targetview1"
+					]
+				},
+				{
+					"name": "Routeadmin",
+					"pattern": "Routeadmin",
+					"target": [
+						"Targetadmin"
+					]
+				},
+				{
+					"name": "Routedriver",
+					"pattern": "Routedriver",
+					"target": [
+						"Targetdriver"
+					]
+				},
+				{
+					"name": "Routerestaurant",
+					"pattern": "Routerestaurant",
+					"target": [
+						"Targetrestaurant"
+					]
+				}
+			],
+			"targets": {
+				"Targetlogin": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "login"
+				},
+				"Targetview1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "view1"
+				},
+				"Targetadmin": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "admin"
+				},
+				"Targetdriver": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "driver"
+				},
+				"Targetrestaurant": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "restaurant"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

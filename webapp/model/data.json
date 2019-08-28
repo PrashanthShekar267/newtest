@@ -1,0 +1,48 @@
+{
+	"customer": [{
+		"customerName": "",
+		"customerEmail": "",
+		"customerContact": "",
+		"password": ""
+	}],
+	"restaurant": [{
+		"restaurantName": "Muniyandi Vilas",
+		"restaurantType": "Non-Veg",
+		"restaurantRating": 4,
+		"restaurantMinOrder": "200",
+		"restaurantImage": "./images/image5.jpg",
+		"restaurantMenu": [ {"itemName": "Sambar vada", 
+							 "itemPrice": "90",
+							"itemQuantity": "2"},
+							{"itemName": "Chole Bature", 
+							 "itemPrice": "40",
+							"itemQuantity": "2"}]
+	}, {
+		"restaurantName": "Muniyandi Vilas1",
+		"restaurantType": "Non-Veg",
+		"restaurantRating": 4,
+		"restaurantMinOrder": "200",
+		"restaurantImage": "./images/image5.jpg",
+		"restaurantMenu": [ {"itemName": "Idli", 
+							 "itemPrice": "90",
+							"itemQuantity": "2"}]
+	}, {
+		"restaurantName": "Muniyandi Vilas2",
+		"restaurantType": "Non-Veg",
+		"restaurantRating": 2,
+		"restaurantMinOrder": "200",
+		"restaurantImage": "./images/image5.jpg",
+		"restaurantMenu": "menu"
+	}, {
+		"restaurantName": "Chutney Chang",
+		"restaurantAddress": "",
+		"restaurantType": [{
+			"type": "Veg"
+		}, {
+			"type": "Non-Veg"
+		}],
+		"restaurantMinOrder": "",
+		"restaurantContact": ""
+	}],
+	"driverDetails": [ ]
+}

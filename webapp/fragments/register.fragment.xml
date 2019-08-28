@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="registerFragment">
+	<Dialog title="{i18n>REGISTER}">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>CUSTOMER_NAME}"/>
+				<Input value="{oModel>/user}" />
+				<Label text="{i18n>PASSWORD}"/>
+				<Input value="{oModel>/customerpassword}" type="Password"/>
+				<Label text="{i18n>EMAIL_ADDRESS}"/>
+				<Input value="{oModel>/customeremail}"/>
+				<Label text="{i18n>CUSTOMER_CONTACT}"/>
+				<Input value="{oModel>/customerphnum}" maxLength="10" required="mandatory"/>
+				<Button press="onSubmitCustRegister" text="{i18n>REGISTER}" class="onLoginBtn"></Button>
+				<Button text="{i18n>CANCEL}" press="onClickCancel"></Button>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

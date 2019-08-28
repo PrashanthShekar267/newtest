@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="loginFragment">
+	<Dialog title="{i18n>LOGIN}">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<Label text="{i18n>USER_NAME}"/>
+			<Input value="{oModel>/user}" change="useremail"/>
+			<Label text="{i18n>PASSWORD}"/>
+			<Input value="{oModel>/password}" type="Password" change="userpass"/>
+			<Text text="Forgot Password?" class="forgotPassword"></Text>
+			<Button press="onSubmitCustLogin" text="{i18n>LOGIN}" class="onLoginBtn"></Button>
+			<Button text="{i18n>CANCEL}" press="onClickCancel"></Button>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

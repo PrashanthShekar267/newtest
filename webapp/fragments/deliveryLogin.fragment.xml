@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="deliveryLoginFragment">
+	<Dialog title="{i18n>DRIVER_LOGIN}">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>USER_NAME}"/>
+				<Input value="{oModel>/user}" placeholder="Enter your Username"/>
+				<Label text="{i18n>PASSWORD}"/>
+				<Input value="{oModel>/password}" type="Password"  placeholder="Enter Password"/>
+				<HBox>
+					<Button press="onSubmitDriverLogin" text="{i18n>LOGIN}" class="onLoginBtn sapUiSmallMargin"></Button>
+					<Button text="{i18n>CANCEL}" press="onClickCancel" class="sapUiSmallMargin"></Button>
+				</HBox>
+				<HBox class="registerButton">
+					<Button text="{i18n>REGISTER}" press="onClickDriverRegister"></Button>
+				</HBox>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

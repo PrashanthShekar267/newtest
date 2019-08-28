@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "fapp.foodApp.foodApp",
+        "description": "food application 2",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#foodApp-Display",
+        "navigationComponentName": "fapp.foodApp",
+        "intentSemanticObject": "foodApp",
+        "intentAction": "Display",
+        "html5ApplicationName": "foodapp",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "1f6672f8-c635-47cd-8dfd-4fefede64aa9-1555937911784"
+        ],
+        "contentPackages": [
+            "d03173e6-eafe-425f-8578-c543897de214-1555937975361"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "My tile",
+        "subtitle": "Subtitle",
+        "searchKeywords": "My tile,Subtitle",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

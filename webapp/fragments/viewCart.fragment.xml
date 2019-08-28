@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" id="viewCartFragment">
+	<Dialog title="{i18n>CART}">
+		<!--<Text text="{oModel>/restname}"/>-->
+		<!--<Text text="{oModel>/restaddress}"/>-->
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<Table items="{oModel>/ordereditem}">
+				<columns>
+					<Column>
+						<Text text="{i18n>ITEM_NAME}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>ITEM_PRICE}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>ITEM_QUANTITY}"/>
+					</Column>
+					<Column>
+						<Text text=""/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{oModel>item}"/>
+							<Text text="Rs.{oModel>price}"/>
+							<Text text="{oModel>quantity}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Input placeholder="{i18n>ENTER_DELIVERY_ADDRESS}" change="oInputDeliveryAddress" required="true"></Input>
+			<Button press="onClickPlaceOrder" text="{i18n>PLACE_ORDER}" class="onLoginBtn"></Button>
+			<Button text="{i18n>CANCEL}" press="onClickCancel"></Button>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

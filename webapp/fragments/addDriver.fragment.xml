@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" id="registerFragment">
+	<Dialog title="Add Driver">
+		<l:VerticalLayout class="fragment sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>DRIVER_NAME}"/>
+				<Input value="{oFormModel>/drivername}" change="dNameForm" placeholder="Driver's Name"/>
+				<Label text="{i18n>DRIVER_EMAIL}"/>
+				<Input value="{oFormModel>/email}" change="dEmailForm" placeholder="Driver's Email"/>
+				<Label text="{i18n>DRIVER_CONTACT}" />
+				<Input value="{oFormModel>/driverphnum}" required="true" maxLength="10" change="dContactForm" placeholder="Driver's Ph. Number"/>
+				<Label text="{i18n>DRIVER_LICENSE}" required="true"/>
+				<Input value="{oFormModel>/idproof}"  change="dDLForm" placeholder="Driving License"/>
+				<Button press="onSubmitAddDriver" text="Add" class="onLoginBtn"></Button>
+				<Button press="clear" text="Clear"></Button>
+			</l:content>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>
