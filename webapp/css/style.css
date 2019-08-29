@@ -207,9 +207,7 @@
     color: white;
 }
 
-.sapMFlexBoxJustifyStart {
-	justify-content: center;
-}
+
 
 .totalPrice .sapMFlexItemAlignAuto{
 	font-size:1.2rem;
